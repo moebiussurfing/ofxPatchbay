@@ -7,8 +7,8 @@
 
 #include "ofxPatchbay.h"
 
-ofxPatchbay::ofxPatchbay(bool kb, bool mouse, bool midi, bool audio) {
-    input.registerInputs(this, kb, mouse, midi, audio);
+ofxPatchbay::ofxPatchbay(bool kb, bool mouse, bool midi, bool audio, bool bparam) {
+    input.registerInputs(this, kb, mouse, midi, audio, bparam);
 }
 
 void ofxPatchbay::registerControllable1f(string name, function<void (float)> func) {

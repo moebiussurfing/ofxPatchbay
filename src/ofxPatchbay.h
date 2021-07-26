@@ -18,8 +18,10 @@ using namespace std;
 
 class ofxPatchbay {
 public:
-    ofxPatchbay(bool kb = true, bool mouse = true, bool midi = true, bool audio = true);
-    void update();
+    ofxPatchbay(bool kb = false, bool mouse = false, bool midi = false, bool audio = false, bool bparam = true);
+    //ofxPatchbay(bool kb = true, bool mouse = true, bool midi = true, bool audio = true, bool bparam = true);
+    
+	void update();
     void registerAllInputs();
     
     void connect1f(string controller, string controllable);
@@ -42,6 +44,18 @@ public:
     void printConnections();
     void print1f();
     void print2f();
+
+	// ofParameters
+	void addParameter(ofParameter<float>& param) {
+		input.addParameter(param);
+	}
+	void setupParameters() {
+		input.registerParams(this);
+	}
+	void clearParameters() {
+		input.unregisterParams(this);
+	}
+
 protected:
     map<string, set<string>> connections1f;
     map<string, set<string>> connections2f;
