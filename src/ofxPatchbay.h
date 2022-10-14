@@ -24,6 +24,9 @@ public:
 	void update();
     void registerAllInputs();
     
+    void connectB(string controller, string controllable);
+    void disconnectB(string controller, string controllable);
+
     void connect1f(string controller, string controllable);
     void connect2f(string controller, string controllable);
 
@@ -33,7 +36,11 @@ public:
     void disconnectAll();
     void disconnectAll1f();
     void disconnectAll2f();
+    void disconnectAllB();
 
+    void registerControllableB(string, function<void (bool)>);
+    void registerControllerB(string, function<bool ()>);
+    
     void registerControllable1f(string, function<void (float)>);
     void registerController1f(string, function<float ()>);
 
@@ -44,6 +51,7 @@ public:
     void printConnections();
     void print1f();
     void print2f();
+    void printB();
 
 	// ofParameters
 	void addParameter(ofParameter<float>& param) {
@@ -57,8 +65,12 @@ public:
 	}
 
 protected:
+    map<string, set<string>> connectionsB;
     map<string, set<string>> connections1f;
     map<string, set<string>> connections2f;
+
+    map<string, function<void (bool)>> controllableB;
+    map<string, function<bool ()>> controllerB;
 
     map<string, function<void (float)>> controllable1f;
     map<string, function<float ()>> controller1f;

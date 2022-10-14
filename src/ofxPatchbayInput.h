@@ -42,6 +42,8 @@ protected:
     ofxMouseInput mouse;
     ofxKeyboardInput keyboard;
     ofxAudioInput audio;
+
+    //ofxParameterAbs parameters;
     ofxParameterFloats parameters;
 };
 

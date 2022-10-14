@@ -6,12 +6,16 @@ void ofApp::setup() {
 	//patchbay = ofxPatchbay(false, false, false, false, true);
 
 	// input params (controllers)
+	gInput.add(bi1);
+	gInput.add(bi2);
 	gInput.add(pi1);
 	gInput.add(pi2);
 	gInput.add(pi3);
 	gInput.add(pi4);
 
 	// output params (targets)
+	gOutput.add(bo1);
+	gOutput.add(bo2);
 	gOutput.add(po1);
 	gOutput.add(po2);
 	gOutput.add(po3);
@@ -20,6 +24,8 @@ void ofApp::setup() {
 	//-
 
 	// define inputs
+	patchbay.addParameter(bi1);
+	patchbay.addParameter(bi2);
 	patchbay.addParameter(pi1);
 	patchbay.addParameter(pi2);
 	patchbay.addParameter(pi3);
@@ -29,6 +35,12 @@ void ofApp::setup() {
 	//-
 
 	// define and name outputs
+	patchbay.registerControllableB("bo1", [&](bool value) {
+		bo1.set(value);
+	});
+	patchbay.registerControllableB("bo2", [&](bool value) {
+		bo2.set(value);
+	});
 	patchbay.registerControllable1f("po1", [&](float value) {
 		po1.set(value);
 	});
@@ -49,12 +61,16 @@ void ofApp::setup() {
 	patchbay.connect1f("param-2", "po2");
 	patchbay.connect1f("param-3", "po3");
 	patchbay.connect1f("param-4", "po4");
+	patchbay.connectB("param-5", "bo1");
+	patchbay.connectB("param-6", "bo2");
 
 	str2 = "";
 	str2 += "1 -> 1 \n";
 	str2 += "2 -> 2 \n";
 	str2 += "3 -> 3 \n";
-	str2 += "4 -> 4";
+	str2 += "4 -> 4 \n";
+	str2 += "5 -> 5 \n";
+	str2 += "6 -> 6";
 
 	//-
 

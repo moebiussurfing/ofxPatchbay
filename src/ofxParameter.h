@@ -4,6 +4,7 @@
 
 #include "ofMain.h"
 
+///*
 class ofxParameterFloats {
 public:
 	ofxParameterFloats();
@@ -19,6 +20,25 @@ public:
 		return parameters.size();
 	}
 };
+//*/
+
+/*
+class ofxParameterAbs{
+public:
+	ofxParameterAbs();
+	~ofxParameterAbs();
+
+	vector<ofAbstractParameter> parameters;
+	void addParameter(ofAbstractParameter& param);
+
+	ofParameterGroup params{ "Params" };
+	void Changed_params(ofAbstractParameter& e);
+
+	int getSize() {
+		return parameters.size();
+	}
+};
+*/
 
 
 #endif /* ofxParameter_h */
