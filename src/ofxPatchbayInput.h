@@ -36,6 +36,10 @@ public:
 		parameters.addParameter(param);
 	}
 
+	void addParameter(ofParameter<bool>& param) {
+		parametersB.addParameter(param);
+	}
+
 protected:
 
     ofxMidiInput midi;
@@ -45,6 +49,7 @@ protected:
 
     //ofxParameterAbs parameters;
     ofxParameterFloats parameters;
+    ofxParameterBools parametersB;
 };
 
 #endif /* ofxPatchbayInput_h */

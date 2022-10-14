@@ -57,6 +57,10 @@ public:
 	void addParameter(ofParameter<float>& param) {
 		input.addParameter(param);
 	}
+	void addParameter(ofParameter<bool>& param) {
+		input.addParameter(param);
+	}
+
 	void setupParameters() {
 		input.registerParams(this);
 	}

@@ -26,6 +26,33 @@ void ofxParameterFloats::Changed_params(ofAbstractParameter &e)
 }
 //*/
 
+
+ofxParameterBools::ofxParameterBools() {
+	ofAddListener(params.parameterChangedE(), this, &ofxParameterBools::Changed_params); // setup()
+}
+
+ofxParameterBools::~ofxParameterBools() {
+	ofRemoveListener(params.parameterChangedE(), this, &ofxParameterBools::Changed_params); // exit()
+}
+
+void ofxParameterBools::addParameter(ofParameter<bool>& param) {
+	parameters.push_back(param);
+
+	params.add(param);
+}
+
+void ofxParameterBools::Changed_params(ofAbstractParameter& e)
+{
+	string name = e.getName();
+	ofLogNotice() << "Changed: " << name << " : " << e;
+
+	//if (name == p.getName())
+	//{
+	//}
+}
+
+
+
 /*
 ofxParameterAbs::ofxParameterAbs() {
 	ofAddListener(params.parameterChangedE(), this, &ofxParameterAbs::Changed_params); // setup()

@@ -22,6 +22,23 @@ public:
 };
 //*/
 
+class ofxParameterBools{
+public:
+	ofxParameterBools();
+	~ofxParameterBools();
+
+	vector<ofParameter<bool>> parameters;
+	void addParameter(ofParameter<bool>& param);
+
+	ofParameterGroup params{ "Params" };
+	void Changed_params(ofAbstractParameter& e);
+
+	int getSize() {
+		return parameters.size();
+	}
+};
+
+
 /*
 class ofxParameterAbs{
 public:
