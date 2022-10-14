@@ -7,8 +7,8 @@
 
 #include "ofxPatchbay.h"
 
-ofxPatchbay::ofxPatchbay(bool kb, bool mouse, bool midi, bool audio, bool bparam) {
-    input.registerInputs(this, kb, mouse, midi, audio, bparam);
+ofxPatchbay::ofxPatchbay() {
+    input.registerInputs(this);
 }
 
 //--
